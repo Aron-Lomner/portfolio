@@ -5,6 +5,13 @@
 		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		%sveltekit.head%
+		<script>
+			document.addEventListener('DOMContentLoaded', (event) => {
+				//set to storage to current theme (keep it the same) or light (if it does not exist)
+				localStorage.setItem('theme', localStorage.getItem('theme') || 'light');
+				document.documentElement.setAttribute('data-theme', localStorage.getItem('theme'));
+			});
+		</script>
 	</head>
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">%sveltekit.body%</div>
